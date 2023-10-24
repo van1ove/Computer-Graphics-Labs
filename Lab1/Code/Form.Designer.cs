@@ -28,6 +28,7 @@
             this.BlueLabel = new System.Windows.Forms.Label();
             this.GreenLabel = new System.Windows.Forms.Label();
             this.RedLabel = new System.Windows.Forms.Label();
+            this.RedTextBox = new System.Windows.Forms.TextBox();
             this.CMYKValues = new System.Windows.Forms.GroupBox();
             this.KeyValueLabel = new System.Windows.Forms.Label();
             this.YellowValueLabel = new System.Windows.Forms.Label();
@@ -51,6 +52,17 @@
             this.ValueLabel = new System.Windows.Forms.Label();
             this.SaturationLabel = new System.Windows.Forms.Label();
             this.HueLabel = new System.Windows.Forms.Label();
+            this.GreenTextBox = new System.Windows.Forms.TextBox();
+            this.BlueTextBox = new System.Windows.Forms.TextBox();
+            this.HueTextBox = new System.Windows.Forms.TextBox();
+            this.SaturationTextBox = new System.Windows.Forms.TextBox();
+            this.ValueTextBox = new System.Windows.Forms.TextBox();
+            this.KeyTextBox = new System.Windows.Forms.TextBox();
+            this.YellowTextBox = new System.Windows.Forms.TextBox();
+            this.MagentaTextBox = new System.Windows.Forms.TextBox();
+            this.CyanTextBox = new System.Windows.Forms.TextBox();
+            this.ColorDialog = new System.Windows.Forms.ColorDialog();
+            this.ColorButton = new System.Windows.Forms.Button();
             this.RGBValues.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RedTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BlueTrackBar)).BeginInit();
@@ -90,7 +102,6 @@
             this.RGBValues.TabIndex = 2;
             this.RGBValues.TabStop = false;
             this.RGBValues.Text = "RGBValues";
-            this.RGBValues.Visible = false;
             // 
             // BlueValueLabel
             // 
@@ -172,6 +183,16 @@
             this.RedLabel.Size = new System.Drawing.Size(27, 15);
             this.RedLabel.TabIndex = 1;
             this.RedLabel.Text = "Red";
+            // 
+            // RedTextBox
+            // 
+            this.RedTextBox.Location = new System.Drawing.Point(1011, 36);
+            this.RedTextBox.Name = "RedTextBox";
+            this.RedTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.RedTextBox.Size = new System.Drawing.Size(50, 23);
+            this.RedTextBox.TabIndex = 5;
+            this.RedTextBox.Text = "0";
+            this.RedTextBox.Leave += new System.EventHandler(this.OnRedTextBoxLeft);
             // 
             // CMYKValues
             // 
@@ -319,7 +340,6 @@
             this.HSVValues.TabIndex = 4;
             this.HSVValues.TabStop = false;
             this.HSVValues.Text = "HSVValues";
-            this.HSVValues.Visible = false;
             // 
             // ValueValueLabel
             // 
@@ -402,11 +422,128 @@
             this.HueLabel.TabIndex = 1;
             this.HueLabel.Text = "Hue";
             // 
+            // GreenTextBox
+            // 
+            this.GreenTextBox.Location = new System.Drawing.Point(1011, 88);
+            this.GreenTextBox.Name = "GreenTextBox";
+            this.GreenTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.GreenTextBox.Size = new System.Drawing.Size(50, 23);
+            this.GreenTextBox.TabIndex = 6;
+            this.GreenTextBox.Text = "0";
+            this.GreenTextBox.Leave += new System.EventHandler(this.OnGreenTextBoxLeft);
+            // 
+            // BlueTextBox
+            // 
+            this.BlueTextBox.Location = new System.Drawing.Point(1011, 142);
+            this.BlueTextBox.Name = "BlueTextBox";
+            this.BlueTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.BlueTextBox.Size = new System.Drawing.Size(50, 23);
+            this.BlueTextBox.TabIndex = 7;
+            this.BlueTextBox.Text = "0";
+            this.BlueTextBox.Leave += new System.EventHandler(this.OnBlueTextBoxLeft);
+            // 
+            // HueTextBox
+            // 
+            this.HueTextBox.Location = new System.Drawing.Point(1011, 419);
+            this.HueTextBox.Name = "HueTextBox";
+            this.HueTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.HueTextBox.Size = new System.Drawing.Size(50, 23);
+            this.HueTextBox.TabIndex = 8;
+            this.HueTextBox.Text = "0";
+            this.HueTextBox.Leave += new System.EventHandler(this.OnHueTextBoxLeft);
+            // 
+            // SaturationTextBox
+            // 
+            this.SaturationTextBox.Location = new System.Drawing.Point(1011, 471);
+            this.SaturationTextBox.Name = "SaturationTextBox";
+            this.SaturationTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.SaturationTextBox.Size = new System.Drawing.Size(50, 23);
+            this.SaturationTextBox.TabIndex = 9;
+            this.SaturationTextBox.Text = "0";
+            this.SaturationTextBox.Leave += new System.EventHandler(this.OnSaturationTextBoxLeft);
+            // 
+            // ValueTextBox
+            // 
+            this.ValueTextBox.Location = new System.Drawing.Point(1011, 525);
+            this.ValueTextBox.Name = "ValueTextBox";
+            this.ValueTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.ValueTextBox.Size = new System.Drawing.Size(50, 23);
+            this.ValueTextBox.TabIndex = 10;
+            this.ValueTextBox.Text = "0";
+            this.ValueTextBox.Leave += new System.EventHandler(this.OnValueTextBoxLeft);
+            // 
+            // KeyTextBox
+            // 
+            this.KeyTextBox.Location = new System.Drawing.Point(1011, 355);
+            this.KeyTextBox.Name = "KeyTextBox";
+            this.KeyTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.KeyTextBox.Size = new System.Drawing.Size(50, 23);
+            this.KeyTextBox.TabIndex = 11;
+            this.KeyTextBox.Text = "0";
+            this.KeyTextBox.Leave += new System.EventHandler(this.OnKeyTextBoxLeft);
+            // 
+            // YellowTextBox
+            // 
+            this.YellowTextBox.Location = new System.Drawing.Point(1011, 302);
+            this.YellowTextBox.Name = "YellowTextBox";
+            this.YellowTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.YellowTextBox.Size = new System.Drawing.Size(50, 23);
+            this.YellowTextBox.TabIndex = 12;
+            this.YellowTextBox.Text = "0";
+            this.YellowTextBox.Leave += new System.EventHandler(this.OnYellowTextBoxLeft);
+            // 
+            // MagentaTextBox
+            // 
+            this.MagentaTextBox.Location = new System.Drawing.Point(1011, 256);
+            this.MagentaTextBox.Name = "MagentaTextBox";
+            this.MagentaTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.MagentaTextBox.Size = new System.Drawing.Size(50, 23);
+            this.MagentaTextBox.TabIndex = 13;
+            this.MagentaTextBox.Text = "0";
+            this.MagentaTextBox.Leave += new System.EventHandler(this.OnMagentaTextBoxLeft);
+            // 
+            // CyanTextBox
+            // 
+            this.CyanTextBox.Location = new System.Drawing.Point(1011, 202);
+            this.CyanTextBox.Name = "CyanTextBox";
+            this.CyanTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.CyanTextBox.Size = new System.Drawing.Size(50, 23);
+            this.CyanTextBox.TabIndex = 14;
+            this.CyanTextBox.Text = "0";
+            this.CyanTextBox.Leave += new System.EventHandler(this.OnCyanTextBoxLeft);
+            // 
+            // ColorDialog
+            // 
+            this.ColorDialog.AnyColor = true;
+            this.ColorDialog.Color = System.Drawing.Color.LightGray;
+            this.ColorDialog.FullOpen = true;
+            // 
+            // ColorButton
+            // 
+            this.ColorButton.Location = new System.Drawing.Point(1145, 36);
+            this.ColorButton.Name = "ColorButton";
+            this.ColorButton.Size = new System.Drawing.Size(113, 39);
+            this.ColorButton.TabIndex = 15;
+            this.ColorButton.Text = "Open Color Dialog";
+            this.ColorButton.UseVisualStyleBackColor = true;
+            this.ColorButton.Click += new System.EventHandler(this.ColorButtonClick);
+            // 
             // ChangeColorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1037, 623);
+            this.ClientSize = new System.Drawing.Size(1325, 598);
+            this.Controls.Add(this.ColorButton);
+            this.Controls.Add(this.CyanTextBox);
+            this.Controls.Add(this.MagentaTextBox);
+            this.Controls.Add(this.YellowTextBox);
+            this.Controls.Add(this.KeyTextBox);
+            this.Controls.Add(this.ValueTextBox);
+            this.Controls.Add(this.SaturationTextBox);
+            this.Controls.Add(this.HueTextBox);
+            this.Controls.Add(this.BlueTextBox);
+            this.Controls.Add(this.GreenTextBox);
+            this.Controls.Add(this.RedTextBox);
             this.Controls.Add(this.HSVValues);
             this.Controls.Add(this.CMYKValues);
             this.Controls.Add(this.RGBValues);
@@ -430,6 +567,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ValueTrackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SaturationTrackBar)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -447,6 +585,9 @@
         public TrackBar RedTrackBar;
         public TrackBar BlueTrackBar;
         public TrackBar GreenTrackBar;
+        private TextBox RedTextBox;
+        private TextBox GreenTextBox;
+        private TextBox BlueTextBox;
         //
         // CMYK
         //
@@ -463,6 +604,10 @@
         private Label MagentaValueLabel;
         private Label CyanValueLabel;
         private Label KeyValueLabel;
+        private TextBox YellowTextBox;
+        private TextBox MagentaTextBox;
+        private TextBox CyanTextBox;
+        private TextBox KeyTextBox;
         //
         // HSV
         //
@@ -476,6 +621,14 @@
         private Label ValueLabel;
         private Label SaturationLabel;
         private Label HueLabel;
+        private TextBox HueTextBox;
+        private TextBox SaturationTextBox;
+        private TextBox ValueTextBox;
+        //
+        // Color Dialog
+        //
+        private ColorDialog ColorDialog;
+        private Button ColorButton;
     }
 
     #endregion
