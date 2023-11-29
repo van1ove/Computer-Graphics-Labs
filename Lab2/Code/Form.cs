@@ -217,21 +217,17 @@ namespace Lab2
 
         private void PowImage(double power)
         {
-            if(power >= 1) CvInvoke.Pow(_original, power, _processed);
-            else
+            img = _original.ToImage<Gray, byte>();
+            result = new Image<Gray, byte>(img.Size);
+            for (int row = 0; row < img.Rows; row++)
             {
-                img = _original.ToImage<Gray, byte>();
-                result = new Image<Gray, byte>(img.Size);
-                for (int row = 0; row < img.Rows; row++)
+                for (int col = 0; col < img.Cols; col++)
                 {
-                    for (int col = 0; col < img.Cols; col++)
-                    {
-                        result[row, col] = new Gray(Math.Pow(img[row, col].Intensity, power));
-                    }
+                    result[row, col] = new Gray(Math.Pow(img[row, col].Intensity, power));
                 }
-
-                _processed = result.Mat;
             }
+
+            _processed = result.Mat;
             UpdateScreen();
         }
 
